@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?page id="contentReferenceInformationMain"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul">
+    <window id="winContentReferenceInformationMain" title="Content Reference Information Main Window" width="100%"  height="100%" use="br.ufscar.dc.lince.webuitvanytime.controller.contentReferenceInformation.ContentReferenceInformationMainController">
+
+        <hbox>
+            <vbox>
+                <listbox id="lbContentReferenceTable" width="1000px" height="800px"
+					onSelect="winContentReferenceInformationMain.selectCrid()">
+                    <listhead>
+                        <listheader label="#" width="30px"/>
+                        <listheader label="Timestamp" width="auto"/>
+                        <listheader label="Name" width="auto"/>
+                    </listhead>
+                    <listitem>
+                        <custom-attributes cridItem=""/>
+                    </listitem>
+                </listbox>
+                <toolbarbutton label="Return to Mainpage" href="/index.html" style="color: blue;"/>
+            </vbox>
+            <vbox>
+                <button id="addCrid" label="Add Content Reference Table" onClick="winContentReferenceInformationMain.add()"/>
+                <button id="editCrid" label="Edit Content Reference Table" onClick="winContentReferenceInformationMain.edit()" disabled="true"/>
+                <button id="deleteCrid" label="Delete Content Reference Table" onClick="winContentReferenceInformationMain.delete()" disabled="true"/>
+            </vbox>
+        </hbox>
+    </window>
+</zk>

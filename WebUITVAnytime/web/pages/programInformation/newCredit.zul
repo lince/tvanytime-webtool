@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?page id="WebUITVAnytime"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul">
+    <window id="winNewCredit" title="New Credit" width="700px"  height="700px" use="br.ufscar.dc.lince.webuitvanytime.controller.programInformation.NewCreditController">
+        <groupbox id="gbPerson" mold="3d" width="100%" height="180px" closable="false">
+            <caption image="" label="Add Person"/>
+            <grid height="100%" >
+                <columns>
+                    <column label="" align="center"  width="50%"/>
+                    <column label="" align="left"  width="25%"/>
+                    <column label="" align="center"  width="25%"/>
+                </columns>
+                <rows>
+                    <row>
+                        <listbox id="lbPerson" width="99%" height="120px"
+					onSelect="winNewCredit.selectPerson()" fixedLayout = "true">
+                            <listhead>
+                                <listheader label="#" width="10%"/>
+                                <listheader label="Given name"/>
+                                <listheader label="Family name"/>
+                            </listhead>
+                            <listitem>
+                            </listitem>
+                        </listbox>
+                        <groupbox id="gbPersonName" mold="" width="30%">
+                            <caption image="" label="Person's name"/>
+                            Given name:
+                            <textbox id="tbPersonName" value=""/>
+                            Family name:
+                            <textbox id="tbPersonFamilyname" value=""/>
+                        </groupbox>
+                        <vbox>
+                            <button label="Add Person" onClick="winNewCredit.addPerson()"/>
+                            <button id="btRemovePerson" label="Remove Person" onClick="winNewCredit.removePerson()" disabled="true"/>
+                        </vbox>
+                    </row>
+                </rows>
+            </grid>
+
+        </groupbox>
+        <groupbox id="gbCharacter" mold="3d" width="100%" height="180px" closable="false">
+            <caption image="" label="Add Character"/>
+
+            <grid height="100%">
+                <columns>
+                    <column label="" align="center"  width="50%"/>
+                    <column label="" align="left"  width="25%"/>
+                    <column label="" align="center"  width="25%"/>
+                </columns>
+                <rows>
+                    <row>
+                        <listbox id="lbCharacter" width="99%" height="120px"
+					onSelect="winNewCredit.selectCharacter()" fixedLayout = "true">
+                            <listhead>
+                                <listheader label="#" width="10%"/>
+                                <listheader label="Given name"/>
+                                <listheader label="Family name"/>
+                            </listhead>
+                            <listitem>
+                            </listitem>
+                        </listbox>
+                        <groupbox id="gbCharacterName" mold="" width="30%">
+                            <caption image="" label="Charakter's name"/>
+                            Given name:
+                            <textbox id="tbCharacterName" value=""/>
+                            Family name:
+                            <textbox id="tbCharacterFamilyname" value=""/>
+                        </groupbox>
+                        <vbox>
+                            <button label="Add Character" onClick="winNewCredit.addCharacter()"/>
+                            <button id="btRemoveCharacter" label="Remove Character" onClick="winNewCredit.removeCharacter()" disabled="true"/>
+                        </vbox>
+                    </row>
+                </rows>
+            </grid>
+
+        </groupbox>
+
+        <groupbox id="gbOrganization" mold="3d" width="100%" height="180px" closable="false">
+            <caption image="" label="Add Organization"/>
+
+            <grid height="100%" >
+                <columns>
+                    <column label="" align="center"  width="50%"/>
+                    <column label="" align="left"  width="25%"/>
+                    <column label="" align="center"  width="25%"/>
+                </columns>
+                <rows>
+                    <row>
+                        <listbox id="lbOrganization" width="99%" height="120px"
+					fixedLayout = "true" onSelect="winNewCredit.selectOrganization()">
+                            <listhead>
+                                <listheader label="#" width="10%"/>
+                                <listheader label="Organization name"/>
+                            </listhead>
+                            <listitem>
+                                
+                            </listitem>
+                        </listbox>
+                        <groupbox id="gbOrganizationName" mold="" width="30%">
+                            <caption image="" label="Organization's name"/>
+                            <textbox id="tbOrganization" value=""/>
+                        </groupbox>
+                        <vbox>
+                            <button label="Add Organization" onClick="winNewCredit.addOrganization()"/>
+                            <button id="btRemoveOrganization" label="Remove Organization" onClick="winNewCredit.removeOrganization()" disabled="true"/>
+                        </vbox>
+                    </row>
+                </rows>
+            </grid>
+        </groupbox>
+        <groupbox id="gbRole" mold="3d" width="100%" height="100px" closable="false" >
+            <caption image="" label="Set Role"/>
+            <hbox width="99%" align="center">
+                <vbox>
+                Roleprefix:
+                    <combobox id="cbRolePrefix" cols="40" readonly="true" onCreate="self.selectedIndex = 0">
+                        <comboitem label="urn:tva:metadata:cs:TVARoleCS:2002:"/>
+                        <comboitem label="urn:mpeg:mpeg7:cs:MPEG7RoleCS:"/>
+                        <!-- tag changed: originial from BBC implementation:  "urn:mpeg:mpeg7:cs:RoleCS:2001" -->
+                        <comboitem label="urn:mpeg:mpeg7:cs:RoleCS:2001:"/>
+                        <!-- tag changed: original from BBC implementation:  "urn:tva:metadata:cs:TVARoleCS:2004" -->
+                        <comboitem label="urn:tva:metadata:cs:TVARoleCS:2004:"/>
+                    </combobox>
+                </vbox>
+
+                <groupbox id="gbRoleName" mold="" width="30%">
+                    <caption image="" label="Role name"/>
+                    <textbox id="tbRoleName" value="" cols="30"/>
+                </groupbox>
+            </hbox>
+
+        </groupbox>
+
+        <vbox width="100%" align="right">
+            <hbox>
+                <button label="Save Credit" onClick="winNewCredit.saveCredit()"/>
+                <button label="Cancel" onClick="winNewCredit.cancelCredit()"/>
+            </hbox>
+        </vbox>
+
+    </window>
+</zk>

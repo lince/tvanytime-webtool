@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul">
+
+    <style dynamic="true">
+        
+        <!-- Setting the attributes of myButton -->
+        .myButton {
+            width: 150px;
+            height: 25px;
+            mold: trendy;
+            background: lightblue;            
+        }
+
+        <!-- Setting the background color of the grid -->
+        div.z-grid-body {
+	background: white; border: 0; overflow: auto; <!-- width: 100%; -->
+        }
+
+        <!-- Setting the background color of all odd cells of the grid -->
+        tr.z-grid-odd td.z-row-inner {
+        background: white;
+        padding: 10px;
+        }
+
+        <!-- Setting the borders of the cells of the grid -->
+        tr.z-row td.z-row-inner {
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        border-bottom: none;
+        padding: 10px;
+        }
+
+    </style>
+</zk>

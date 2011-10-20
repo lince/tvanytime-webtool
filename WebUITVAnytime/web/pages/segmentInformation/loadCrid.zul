@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?page id="loadCrid"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul">
+    <window id="winLoadCrid" title="Load Crid" width="650px"  height="680px" use="br.ufscar.dc.lince.webuitvanytime.controller.segmentInformation.LoadCridController" position="center,top">
+        <listbox id="lbCrid" width="100%" height="95%"
+					onSelect="winLoadCrid.selectCrid()">
+            <listhead>
+                <listheader label="#"/>
+                <listheader label="Timestamp"/>
+                <listheader label="Name"/>
+            </listhead>
+            <listitem>
+                <custom-attributes itemID=""/>
+            </listitem>
+
+        </listbox>
+        <vbox width="100%" align="right">
+            <hbox>
+                <button id="btLoadCrid" label="Load Crid" onClick="winLoadCrid.loadCrid()" disabled="true"/>
+                <button label="Cancel" onClick="winLoadCrid.cancel()"/>
+            </hbox>
+        </vbox>
+    </window>
+</zk>

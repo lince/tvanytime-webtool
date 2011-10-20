@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?page id="loadVideo"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul">
+
+    <window id="winLoadVideo" title="Load Video" width="650px"  height="680px" use="br.ufscar.dc.lince.webuitvanytime.controller.segmentInformation.LoadVideoController" position="center,top">
+        <caption image="" label="File list:"/>
+
+        <hbox>
+            <listbox id="lbFile" width="200" height="600"
+					onSelect="" fixedLayout="true">
+                <listhead>
+                    <listheader label="Filename"/>
+                    <listheader label="Size" width="80px"/>
+                    <listheader label="Date of modification"/>
+                </listhead>
+                <listitem>
+                
+                </listitem>
+
+            </listbox>
+            <vbox>
+            <button label="Load Video" onClick="winLoadVideo.loadVideo()"/>
+            <button label="Cancel" onClick="winLoadVideo.cancel()"/>
+            </vbox>
+
+        </hbox>
+
+    </window>
+</zk>

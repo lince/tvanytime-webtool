@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+index.zul
+
+{{IS_NOTE
+	Purpose:
+		
+	Description:
+		
+	History:
+		Mon Jun 12 21:23:35     2006, Created by tomyeh
+		Fri May 01 04:36:35     2009, Modified by stera
+}}IS_NOTE
+
+Copyright (C) 2006 Potix Corporation. All Rights Reserved.
+
+{{IS_RIGHT
+}}IS_RIGHT
+-->
+
+
+<zk xmlns="http://www.zkoss.org/2005/zul">
+    <window use="br.ufscar.lince.dc.webuitvanytime.controller.XmlInterfaceController" height="99%">
+        <grid height="99%">
+            <columns>
+                <column label="TVAnytime Web-Userinterface"/>
+            </columns>
+            <rows>
+                <row>
+                    <label id="label1">ContentReferencingTable</label>
+                    <label id="label2">ProgramInformationTable</label>
+                    <label id="label3">ProgrammLocationTable</label>
+                </row>
+                <row align="center">
+                    <textbox id="contentR" value="" multiline="true" rows="45" cols="70"/>
+                    <textbox id="informationT" value="" multiline="true" rows="45" cols="70"/>
+                    <textbox id="locationT" value="" multiline="true" rows="45" cols="70"/>
+                </row>
+
+                <row align="center">
+                    <label id="blank"> </label>
+                    <button label="Save MetaData" forward="onOK"/>
+                </row>
+                        
+                <row>
+                    <toolbarbutton label="Return to Mainpage" href="http://localhost:8080/WebUITVAnytime/index.html" style="color: blue;"/>
+                </row>
+            </rows>
+        </grid>
+    
+    </window>
+    
+</zk>
+

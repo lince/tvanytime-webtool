@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul">
+    <combobox id="cbLanguage" readonly="true">
+        <comboitem label="Portuguese"/>
+        <comboitem label="English"/>
+        <comboitem label="German"/>
+    </combobox>
+</zk>

@@ -1,0 +1,289 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.2.1-hudson-28-. --><xs:schema xmlns:tns="http://ws.persistence.tvanytime/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://ws.persistence.tvanytime/">
+
+<xs:element name="deleteContentReferenceTable" type="tns:deleteContentReferenceTable" />
+
+<xs:element name="deleteContentReferenceTableResponse" type="tns:deleteContentReferenceTableResponse" />
+
+<xs:element name="deleteProgramInformationTable" type="tns:deleteProgramInformationTable" />
+
+<xs:element name="deleteProgramInformationTableResponse" type="tns:deleteProgramInformationTableResponse" />
+
+<xs:element name="deleteSegmentInformationTable" type="tns:deleteSegmentInformationTable" />
+
+<xs:element name="deleteSegmentInformationTableResponse" type="tns:deleteSegmentInformationTableResponse" />
+
+<xs:element name="getAllContentReferencingTable" type="tns:getAllContentReferencingTable" />
+
+<xs:element name="getAllContentReferencingTableResponse" type="tns:getAllContentReferencingTableResponse" />
+
+<xs:element name="getAllProgramInformationTable" type="tns:getAllProgramInformationTable" />
+
+<xs:element name="getAllProgramInformationTableResponse" type="tns:getAllProgramInformationTableResponse" />
+
+<xs:element name="getAllSegmentInformationTable" type="tns:getAllSegmentInformationTable" />
+
+<xs:element name="getAllSegmentInformationTableResponse" type="tns:getAllSegmentInformationTableResponse" />
+
+<xs:element name="getContentReferencingTable" type="tns:getContentReferencingTable" />
+
+<xs:element name="getContentReferencingTableResponse" type="tns:getContentReferencingTableResponse" />
+
+<xs:element name="getProgramInformationTable" type="tns:getProgramInformationTable" />
+
+<xs:element name="getProgramInformationTableResponse" type="tns:getProgramInformationTableResponse" />
+
+<xs:element name="getSegmentInformationTable" type="tns:getSegmentInformationTable" />
+
+<xs:element name="getSegmentInformationTableResponse" type="tns:getSegmentInformationTableResponse" />
+
+<xs:element name="persistContentReferencingTable" type="tns:persistContentReferencingTable" />
+
+<xs:element name="persistContentReferencingTableResponse" type="tns:persistContentReferencingTableResponse" />
+
+<xs:element name="persistProgramInformationTable" type="tns:persistProgramInformationTable" />
+
+<xs:element name="persistProgramInformationTableResponse" type="tns:persistProgramInformationTableResponse" />
+
+<xs:element name="persistSegmentInformationTable" type="tns:persistSegmentInformationTable" />
+
+<xs:element name="persistSegmentInformationTableResponse" type="tns:persistSegmentInformationTableResponse" />
+
+<xs:element name="persistTvAnytimeMetaData" type="tns:persistTvAnytimeMetaData" />
+
+<xs:element name="persistTvAnytimeMetaDataResponse" type="tns:persistTvAnytimeMetaDataResponse" />
+
+<xs:element name="updateContentReferencingTable" type="tns:updateContentReferencingTable" />
+
+<xs:element name="updateContentReferencingTableResponse" type="tns:updateContentReferencingTableResponse" />
+
+<xs:element name="updateProgramInformationTable" type="tns:updateProgramInformationTable" />
+
+<xs:element name="updateProgramInformationTableResponse" type="tns:updateProgramInformationTableResponse" />
+
+<xs:element name="updateSegmentInformationTable" type="tns:updateSegmentInformationTable" />
+
+<xs:element name="updateSegmentInformationTableResponse" type="tns:updateSegmentInformationTableResponse" />
+
+<xs:complexType name="getSegmentInformationTable">
+<xs:sequence>
+<xs:element name="id" type="xs:int" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getSegmentInformationTableResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="persistContentReferencingTable">
+<xs:sequence>
+<xs:element name="name" type="xs:string" minOccurs="0" />
+<xs:element name="contentReferencingTableXML" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="persistContentReferencingTableResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="updateSegmentInformationTable">
+<xs:sequence>
+<xs:element name="index" type="xs:int" />
+<xs:element name="tableName" type="xs:string" minOccurs="0" />
+<xs:element name="SegmentInformationTable" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="updateSegmentInformationTableResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deleteSegmentInformationTable">
+<xs:sequence>
+<xs:element name="segmentInformationTableIndex" type="xs:int" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deleteSegmentInformationTableResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deleteContentReferenceTable">
+<xs:sequence>
+<xs:element name="contentReferenceTableIndex" type="xs:int" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deleteContentReferenceTableResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getProgramInformationTable">
+<xs:sequence>
+<xs:element name="id" type="xs:int" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getProgramInformationTableResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getAllSegmentInformationTable">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="getAllSegmentInformationTableResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:segmentInformationTableResult" minOccurs="0" maxOccurs="unbounded" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="segmentInformationTableResult">
+<xs:sequence>
+<xs:element name="filename" type="xs:string" minOccurs="0" />
+<xs:element name="id" type="xs:int" />
+<xs:element name="tableName" type="xs:string" minOccurs="0" />
+<xs:element name="time" type="xs:long" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="persistProgramInformationTable">
+<xs:sequence>
+<xs:element name="tableName" type="xs:string" minOccurs="0" />
+<xs:element name="persistProgramInformationTableXML" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="persistProgramInformationTableResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="updateProgramInformationTable">
+<xs:sequence>
+<xs:element name="index" type="xs:int" />
+<xs:element name="tableName" type="xs:string" minOccurs="0" />
+<xs:element name="programInformationTable" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="updateProgramInformationTableResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getAllContentReferencingTable">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="getAllContentReferencingTableResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:contentReferencingTableResult" minOccurs="0" maxOccurs="unbounded" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="contentReferencingTableResult">
+<xs:sequence>
+<xs:element name="id" type="xs:int" />
+<xs:element name="name" type="xs:string" minOccurs="0" />
+<xs:element name="time" type="xs:long" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deleteProgramInformationTable">
+<xs:sequence>
+<xs:element name="index" type="xs:int" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deleteProgramInformationTableResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="persistSegmentInformationTable">
+<xs:sequence>
+<xs:element name="filename" type="xs:string" minOccurs="0" />
+<xs:element name="tableName" type="xs:string" minOccurs="0" />
+<xs:element name="segmentInformationTableXML" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="persistSegmentInformationTableResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getAllProgramInformationTable">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="getAllProgramInformationTableResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:programInformationTableResult" minOccurs="0" maxOccurs="unbounded" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="programInformationTableResult">
+<xs:sequence>
+<xs:element name="id" type="xs:int" />
+<xs:element name="tableName" type="xs:string" minOccurs="0" />
+<xs:element name="time" type="xs:long" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="persistTvAnytimeMetaData">
+<xs:sequence>
+<xs:element name="contentRef" type="xs:string" minOccurs="0" />
+<xs:element name="programInf" type="xs:string" minOccurs="0" />
+<xs:element name="programLoc" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="persistTvAnytimeMetaDataResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="updateContentReferencingTable">
+<xs:sequence>
+<xs:element name="index" type="xs:int" />
+<xs:element name="tableName" type="xs:string" minOccurs="0" />
+<xs:element name="contentReferencingTable" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="updateContentReferencingTableResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getContentReferencingTable">
+<xs:sequence>
+<xs:element name="id" type="xs:int" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getContentReferencingTableResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

@@ -1,0 +1,484 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?page id="ProgramInformation"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul">
+    <window id="winProgramInformation" use="br.ufscar.dc.lince.webuitvanytime.controller.programInformation.ProgramInformationController" title="Program Information" width="100%" height="100%">
+        <include src="../core/style.zul"/>
+        <hbox>
+            <vbox>
+                <grid width="200px" height="700px">
+                    <columns>
+                        <column label="" align="center"/>
+                    </columns>
+                    <rows>
+                    <!--
+                    <row>
+                        <button label="Crid" onClick="" sclass="myButton"/>
+                    </row>
+                    <row>
+                        <button label="Title" onClick="" sclass="myButton"/>
+                    </row> -->
+                        <row>
+                            <button label="Synopsis" onClick="winProgramInformation.synopsis()" sclass="myButton"/>
+                        </row>
+                        <row>
+                            <button label="Related Material" onClick="winProgramInformation.relatedMaterial()" sclass="myButton"/>
+                        </row>
+                        <row>
+                            <button label="Caption Language" onClick="winProgramInformation.captionLanguage()" sclass="myButton"/>
+                        </row>
+                        <row>
+                            <button label="Audio Sign Language" onClick="winProgramInformation.audioSignLanguage()" sclass="myButton"/>
+                        </row>
+                        <row>
+                            <button label="Keyword" onClick="winProgramInformation.keyword()" sclass="myButton"/>
+                        </row>
+                        <row>
+                            <button label="Genre" onClick="winProgramInformation.genre()" sclass="myButton"/>
+                        </row>
+                        <row>
+                            <button label="Promotional Information" onClick="winProgramInformation.promotionalInformation()" sclass="myButton" height="auto"/>
+                        </row>
+                        <row>
+                            <button label="Credits" onClick="winProgramInformation.credits()" sclass="myButton"/>
+                        </row>
+
+                    </rows>
+                </grid>
+                <button label="Save Program Information" onClick="winProgramInformation.saveProgramInformation()" sclass="myButton" height="auto"/>
+                <button label="Cancel" onClick="winProgramInformation.cancel()" sclass="myButton"/>
+            </vbox>
+
+            <vbox>
+                <groupbox id="gbCridTitle" mold="3d" width="100%">
+                    <caption image="" label="Crid and Title"/>
+                    <vbox>
+                        <hbox style="padding: 10px 0px 10px 0px;">
+                            <label value="CRID: "/>
+                            <combobox id="cbCrid" cols="30">
+                            </combobox>
+                            <button label="Load Crid" onClick="">
+                                <attribute name="onClick">{
+                                                    final Window win = (Window) Executions.createComponents("loadCrid.zul", null, null);
+                                                    win.setMaximizable(false);
+                                                    win.doModal();	}
+                                </attribute>
+                            </button>
+                        </hbox>
+                        <label value="Title:"/>
+                        <hbox>
+                            <listbox id="lbTitle" width="500px" height="130px"
+					onSelect="" fixedLayout = "true">
+                                <listhead>
+                                    <listheader label="#" width="25px"/>
+                                    <listheader label="Title" width="auto"/>
+                                    <listheader label="Language"/>
+                                    <listheader label="Typ"/>
+                                </listhead>
+                                <listitem>                                    
+                                </listitem>
+                            </listbox>
+                            <groupbox id="gbTitleAdd" mold="3d" width="100%" closable="false" height="140px">
+                                <caption image="" label="New Title"/>
+                                <listbox id="lbTitleAdd" width="100%" height=""
+					onSelect="" fixedLayout = "false">
+                                    <listhead>
+                                        <listheader label="Title" width="10%"/>
+                                        <listheader label="Language"/>
+                                        <listheader label="Typ"/>
+                                        <listheader label=""/>
+                                    </listhead>
+                                    <listitem>
+                                        <listcell>
+                                            <textbox id="tbNewTitle" value="" cols="25"/>
+                                        </listcell>
+                                        <listcell>
+                                            <include src="../core/cbLanguage.zul" id="cbTitleLanguage"/>
+                                        </listcell>
+                                        <listcell>
+                                            <combobox id="cbTitleTyp" cols="15" readonly="true">
+                                                <comboitem label="Main"/>
+                                                <comboitem label="Secondary"/>
+                                                <comboitem label="Alternative"/>
+                                                <comboitem label="Original"/>
+                                                <comboitem label="Popular"/>
+                                                <comboitem label="Opusnumber"/>
+                                                <comboitem label="Songtitle"/>
+                                                <comboitem label="Albumtitle"/>
+                                                <comboitem label="Seriestitle"/>
+                                                <comboitem label="Episodetitle"/>
+                                            </combobox>
+                                        </listcell>
+                                        <listcell>
+                                            <vbox>
+                                                <button label="Add Title" onClick="winProgramInformation.addTitle()"/>
+                                                <button label="Del Title" onClick="winProgramInformation.delTitle()" disabled="true"/>
+                                            </vbox>
+                                        </listcell>
+                                    </listitem>
+                                </listbox>
+                            </groupbox>
+                        </hbox>
+                    </vbox>
+                </groupbox>
+                <vbox id="vbSynopsis" visible="false">
+                    <groupbox id="gbSynopsis" mold="3d" width="100%" closable="false" visible="true">
+                        <caption image="" label="New Synopsis"/>
+                        <hbox>
+                            <label value="Synopsis: "/>
+                            <textbox id="tbSynopsis" cols="50"/>
+                            <label value="Language: "/>
+                            <include src="../core/cbLanguage.zul" id="cbSynopsisLanguage"/>
+                            <label value="Lenght: "/>
+                            <combobox id="cbSynopsisLength" readonly="true" cols="13">
+                                <comboitem label="Undefined"/>
+                                <comboitem label="Short"/>
+                                <comboitem label="Medium"/>
+                                <comboitem label="Long"/>
+                            </combobox>
+                            <vbox width="300px" align="right">
+                                <button label="Add Synopsis" onClick="winProgramInformation.addSynopsis()"/>
+                                <button label="Del Synopsis" onClick="winProgramInformation.delSynopsis()" disabled="true"/>
+                            </vbox>
+                        </hbox>
+                    </groupbox>
+                    <listbox id="lbSynopsis" width="100%" height=""
+					onSelect="" fixedLayout = "true">
+                        <listhead>
+                            <listheader label="#" width="5%"/>
+                            <listheader label="Synopsis"/>
+                            <listheader label="Language"/>
+                            <listheader label="Length"/>
+                        </listhead>
+                        <listitem>
+
+                        </listitem>
+
+                    </listbox>
+                </vbox>
+
+                <vbox id="vbRelatedMaterial" visible="false">
+                    <groupbox id="gbRelatedMaterial" mold="3d" width="100%" closable="false">
+                        <caption image="" label="New Related Material"/>
+                        <listbox id="lbRelatedMaterialAdd" width="99%"
+					onSelect="" fixedLayout = "false">
+                            <listhead>
+                                <listheader label="How related" width="10%"/>
+                                <listheader label="Relationname" />
+                                <listheader label="Sourcelocator"/>
+                            </listhead>
+                            <listitem>
+                                <listcell>
+                                    <combobox id="cbHowRelated" readonly="true" cols="30">
+                                    </combobox>
+                                </listcell>
+                                <listcell>
+                                    <textbox id="tbRelationName" value=""/>
+                                </listcell>
+                                <listcell>
+                                    <textbox id="tbSourceLocator" value=""/>
+                                </listcell>
+                            </listitem>
+                        </listbox>
+                        <listbox id="lbRelatedMaterialAdd2s" width="99%"
+					onSelect="" fixedLayout = "false">
+                            <listhead>
+                                <listheader label="Locatortype"/>
+                                <listheader label="Segment Type"/>
+                                <listheader label="Locator"/>
+                                <listheader label="Promotional Text" width="10%"/>
+                                <listheader label=""/>
+                            </listhead>
+                            <listitem>
+                                <listcell>
+                                    <radiogroup Id="rbLocatorType" onCheck="" orient="vertical">
+                                        <vbox>
+                                            <radio label="Medialocator" checked="true"/>
+                                            <radio label="Segment Reference"/>
+                                        </vbox>
+                                    </radiogroup>
+                                </listcell>
+                                <listcell>
+                                    <combobox id="cbSegmentType" readonly="true" cols="15">
+                                        <comboitem label="Segment"/>
+                                        <comboitem label="Segmentgroup"/>
+                                    </combobox>
+                                </listcell>
+                                <listcell>
+                                    <textbox id="tbLocator" value=""/>
+                                </listcell>
+                                <listcell>
+                                    <textbox id="tbPromotionalText" value=""/>
+                                </listcell>
+                                <listcell style="padding: 0px;">
+                                    <vbox>
+                                        <button label="Add Material" onClick="winProgramInformation.addRelatedMaterial()"/>
+                                        <button label="Del Material" onClick="winProgramInformation.delRelatedMaterial()" disabled="true"/>
+                                    </vbox>
+                                </listcell>
+                            </listitem>
+                        </listbox>
+                    </groupbox>
+                    <listbox id="lbRelatedMaterial" width="100%" height="380px"
+					onSelect="" fixedLayout = "true">
+                        <listhead>
+                            <listheader label="#" width="20px"/>
+                            <listheader label="How related" width="210px"/>
+                            <listheader label="Relationname"/>
+                            <listheader label="Sourcelocator"/>
+                            <listheader label="Locatortype" width="140px"/>
+                            <listheader label="Segment Type"/>
+                            <listheader label="Locator"/>
+                            <listheader label="Promotional Text"/>
+                        </listhead>
+                        <listitem>
+
+                        </listitem>
+
+                    </listbox>
+                </vbox>
+            
+                <vbox id="vbCaptionLanguage" visible="false">
+                    <groupbox id="gbCaptionLanguage" mold="3d" width="100%" closable="false">
+                        <caption image="" label="New Caption Language"/>
+                        <listbox id="lbCaptionLanguageAdd"
+					onSelect="" width="100%" fixedLayout = "false">
+                            <listhead>
+                                <listheader label="Caption-Language" width="5%"/>
+                                <listheader label="Is closed" align="center"/>
+                                <listheader label="Is supplemental" align="center"/>
+                            </listhead>
+                            <listitem>
+                                <listcell>
+                                    <include src="../core/cbLanguage.zul" id="cbCaptionLanguage"/>
+                                </listcell>
+                                <listcell>
+                                    <checkbox id="cxIsClosed" label="" onCheck="" />
+                                </listcell>
+                                <listcell>
+                                    <checkbox id="cxIsSupplemental" label="" onCheck="" />
+                                </listcell>
+                            </listitem>
+                        </listbox>
+                        <vbox align="right" width="100%">
+                            <hbox>
+                                <button label="Add Caption Language" onClick="winProgramInformation.addCaptionLanguage()"/>
+                                <button label="Del Caption Language" onClick="winProgramInformation.delCaptionLanguage()" disabled="true"/>
+                            </hbox>
+                        </vbox>
+                    </groupbox>
+                    <listbox id="lbCaptionLanguage" width=""
+					onSelect="" fixedLayout = "false">
+                        <listhead>
+                            <listheader label="#" width="5%"/>
+                            <listheader label="Caption-Language"/>
+                            <listheader label="Is closed" align="center"/>
+                            <listheader label="Is supplemental" align="center"/>
+                        </listhead>
+                        <listitem>
+                        </listitem>
+                    </listbox>
+                </vbox>
+
+                <vbox id="vbAudioSignLanguage" visible="false">
+                    <groupbox id="gbAudioSignLanguage" mold="3d" width="100%" open="true" closable="false">
+                        <caption image="" label="New Audio sign Language"/>
+                        <listbox id="lbAudioSignLanguageAdd"
+					onSelect="" width="100%" fixedLayout = "true">
+                            <listhead>
+                                <listheader label="Audio Sign-Language" width="auto"/>
+                                <listheader label="Language Typ" width="auto"/>
+                                <listheader label="Is primary" align="center"/>
+                                <listheader label="Is translation" align="center"/>
+                                <listheader label="" align="right"/>
+                            </listhead>
+                            <listitem>
+                                <listcell>
+                                    <include src="../core/cbLanguage.zul" id="cbAudioSignLanguage"/>
+                                </listcell>
+                                <listcell>
+                                    <textbox id="tbAudioSignLanguageTyp" value=""/>
+                                </listcell>
+                                <listcell>
+                                    <checkbox id="cxIsPrimary" label="" onCheck="" />
+                                </listcell>
+                                <listcell>
+                                    <checkbox id="cxIsTranslation" label="" onCheck="" />
+                                </listcell>
+                                <listcell style="padding: 0px;">
+                                    <hbox>
+                                        <button label="Add Audio Sign-Language" onClick="winProgramInformation.addAudioSignLanguage()"/>
+                                        <button label="Del Audio Sign-Language" onClick="winProgramInformation.delAudioSignLanguage()" disabled="true"/>
+                                    </hbox>
+                                </listcell>
+                            </listitem>
+                        </listbox>
+                        <vbox width="100%" align="right" style="padding: 0px;">
+                            
+                        </vbox>
+                    </groupbox>
+                    <listbox id="lbAudioSignLanguage" width=""
+					onSelect="" fixedLayout = "false">
+                        <listhead>
+                            <listheader label="#" width="5%"/>
+                            <listheader label="AudioSign-Language"/>
+                            <listheader label="Language Typ" width="10px"/>
+                            <listheader label="Is primary" align="center"/>
+                            <listheader label="Is tranlation" align="center"/>
+                        </listhead>
+                    </listbox>
+                </vbox>
+
+                <vbox id="vbKeyword" visible="false">
+                    <groupbox id="gbKeyword" mold="3d" width="100%" closable="false">
+                        <caption image="" label="New Keyword"/>
+
+                        <listbox id="lbKeyworAdd" width="100%" height=""
+					onSelect="" fixedLayout = "false">
+                            <listhead>
+                                <listheader label="Keyword"/>
+                                <listheader label="Typ"/>
+                                <listheader label=""/>
+                            </listhead>
+                            <listitem>
+                                <listcell>
+                                    <textbox id="tbNewKeyword" value="" rows="1" cols="120"/>
+                                </listcell>
+                                <listcell>
+                                    <combobox id="cbKeywordType" readonly="true" onCreate="self.selectedIndex = 0">
+                                        <comboitem label="Main"/>
+                                        <comboitem label="Secondary"/>
+                                        <comboitem label="Other"/>
+                                    </combobox>
+                                </listcell>
+                                <listcell>
+                                    <vbox style="padding: 0px;">
+                                        <button id="addKeyword" label="Add Keyword" onClick="winProgramInformation.addKeyword()"/>
+                                        <button id="delKeyword" label="Del Keyword" onClick="winProgramInformation.delKeyword()" disabled="true"/>
+                                    </vbox>
+                                </listcell>
+                            </listitem>
+                        </listbox>
+                    </groupbox>
+                    <listbox id="lbKeyword" width="" height=""
+					onSelect="" fixedLayout = "false">
+                        <listhead>
+                            <listheader label="#" width="5%"/>
+                            <listheader label="Keywords"/>
+                            <listheader label="Typ"/>
+                        </listhead>
+                        <listitem>
+
+                        </listitem>
+
+                    </listbox>
+                </vbox>
+
+                <vbox id="vbGenre" visible="false">
+                    <groupbox id="gbGenre" mold="3d" width="100%" closable="false">
+                        <caption image="" label="New Genre"/>
+                        <listbox id="lbGenreAdd" width="100%" height=""
+					onSelect="" fixedLayout = "false">
+                            <listhead>
+                                <listheader label="Genre"/>
+                                <listheader label="Typ"/>
+                                <listheader label=""/>
+                            </listhead>
+                            <listitem>
+                                <listcell>
+                                    <combobox id="cbGenre" readonly="true" cols="150">
+                                    </combobox>
+                                </listcell>
+                                <listcell>
+                                    <combobox id="cbGenreType" readonly="true" onCreate="self.selectedIndex = 0">
+                                        <comboitem label="main"/>
+                                        <comboitem label="secondary"/>
+                                        <comboitem label="other"/>
+                                    </combobox>
+                                </listcell>
+                                <listcell style="padding: 0px;">
+                                    <button id="addGenre" label="Add Genre" onClick="winProgramInformation.addGenre()"/>
+                                    <button id="delGenre" label="Del Genre" onClick="winProgramInformation.delGenre()" disabled="true"/>
+                                </listcell>
+
+                            </listitem>
+
+                        </listbox>
+                    </groupbox>
+
+                    <listbox id="lbGenre" width="" height=""
+					onSelect="" fixedLayout = "false">
+                        <listhead>
+                            <listheader label="#" width="5%"/>
+                            <listheader label="Genre"/>
+                            <listheader label="Typ"/>
+
+                        </listhead>
+                        <listitem>
+                        </listitem>
+                    </listbox>
+                </vbox>
+
+                <vbox id="vbPromotionalInformation" visible="false">
+                    <groupbox id="gbPromotionalInformation" mold="3d" width="100%" closable="false">
+                        <caption image="" label="New Promotional Information"/>
+                        <listbox id="lbPromotionalInformationAdd" width="100%" height=""
+					onSelect="" fixedLayout = "false" vflex="true">
+                            <listhead>
+                                <listheader label="Promotional Information"/>
+                                <listheader label=""/>
+                            </listhead>
+                            <listitem>
+                                <listcell>
+                                    <textbox id="tbPromotionalInformation" value="" cols="150"/>
+                                </listcell>
+                                <listcell>
+                                    <vbox>
+                                        <button id="addPromotionalInformation" label="Add Promotional Information" onClick="winProgramInformation.addPromotionalInformation()"/>
+                                        <button id="delPromotionalInformation" label="Del Promotional Information" onClick="winProgramInformation.delPromotionalInformation()" disabled="true"/>
+                                    </vbox>
+                                </listcell>
+                            </listitem>
+                        </listbox>
+                    </groupbox>
+                    <listbox id="lbPromotionalInformation" width="" height="425px"
+					onSelect="" fixedLayout = "true">
+                        <listhead>
+                            <listheader label="#" width="5%"/>
+                            <listheader label="Promotinal Information"/>
+                        </listhead>
+                        <listitem>
+                        </listitem>
+                    </listbox>
+                </vbox>
+
+                <vbox id="vbCredits" visible="false">
+                    <vbox width="100%" align="right">
+                        <hbox>
+                            <button id="addCredit" label="Add Credit">
+                                <attribute name="onClick">{
+                                final Window win = (Window) Executions.createComponents("newCredit.zul", null, null);
+                                win.setMaximizable(false);
+                                win.doModal();	}
+                                </attribute>
+                            </button>
+                            <button id="delCredit" label="Del Credit" disabled="true"/>
+                        </hbox>
+                    </vbox>
+                    <listbox id="lbCredits" width="100%" height=""
+					onSelect="" fixedLayout = "true">
+                        <listhead>
+                            <listheader label="#" width="20px"/>
+                            <listheader label="Role"/>
+                        </listhead>
+                        <listitem>
+                            <custom-attributes creditItem=""/>
+                        </listitem>
+                    </listbox>
+                </vbox>
+            </vbox>
+            
+        </hbox>
+    </window>
+
+</zk>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul">
+    <combobox id="cbHowRelated" readonly="true" cols="25">
+        <comboitem label="Trailer"/>
+        <comboitem label="Group trailer"/>
+        <comboitem label="Sibling"/>
+        <comboitem label="Alternative"/>
+        <comboitem label="Parent"/>
+        <comboitem label="Recommendation"/>
+        <comboitem label="Group recommendation"/>
+        <comboitem label="Commercial Advert"/>
+        <comboitem label="Direct product purchase"/>
+        <comboitem label="For more information"/>
+        <comboitem label="Programme review information"/>
+        <comboitem label="Recap"/>
+        <comboitem label="The making of"/>
+        <comboitem label="Support"/>
+    </combobox>
+</zk>

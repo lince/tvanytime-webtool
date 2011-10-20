@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?page id="segmentInformation"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul">
+    <window id="winSegmentInformation" use="br.ufscar.dc.lince.webuitvanytime.controller.segmentInformation.SegmentInformationController" title="Segment Information" width="100%"  height="100%">
+        <label id="lbCurrentTimeSeconds" visible="false"/>
+        <grid>
+            <columns>
+                <column label=""/>
+            </columns>
+            <rows>
+                <row align="center">
+                    <grid>
+                        <columns>
+                            <column label="" width="20%"/>
+                            <column label="" align="center"/>
+                            <column label="" width="20%"/>
+                        </columns>
+                        <rows>
+                            <row>
+                                <groupbox id="gb" mold="3d" width="99%">
+                                    <caption image="" label="Options"/>
+                                    <vbox width="100%">
+                                        <hbox>
+                                            <label value="Filename: "/>
+                                            <textbox id="tbFileName" value="" readonly="true" cols="30"/>
+                                        </hbox>
+                                        <vbox width="100%" align="right">
+                                            <button id="loadVideo" label="Load video">
+                                                <attribute name="onClick">{
+                                                    final Window win = (Window) Executions.createComponents("loadVideo.zul", null, null);
+                                                    win.setMaximizable(false);
+                                                    win.doModal();	}
+                                                </attribute>
+                                            </button>
+                                        </vbox>
+                                        <hbox>
+                                            <label id="" value="Tablename: "/>
+                                            <textbox id="tbTableName" value=""/>
+                                        </hbox>
+                                        <hbox>
+                                            <label id="" value="CRID: "/>
+                                            <combobox id="cbCrid" cols="30">
+                                                <comboitem label=""/>
+                                            </combobox>
+                                        </hbox>
+                                        <vbox width="100%" align="right">
+                                            <button label="Load Crid" onClick="">
+                                                <attribute name="onClick">{
+                                                    final Window win = (Window) Executions.createComponents("loadCrid.zul", null, null);
+                                                    win.setMaximizable(false);
+                                                    win.doModal();	}
+                                                </attribute>
+                                            </button>
+                                        </vbox>
+                                    </vbox>
+                                </groupbox>
+                                <html id="html"><![CDATA[
+
+        <object id="divXplayer_IE" classid="clsid:67DABFBF-D0AB-41fa-9C46-CC0F21721616"
+          width="576" height="468"
+          codebase="http://go.divx.com/plugin/DivXBrowserPlugin.cab">            
+            <embed type="video/divx"
+            id="divXplayer"
+            width="576"
+            height="468"
+            autoPlay="false"
+            timeCallback="myTimeCallback"            
+            pluginspage="http://go.divx.com/plugin/download/">
+            </embed>
+        </object>
+
+<script language="javascript" defer="false">
+
+        var plugin= document.getElementById('divXplayer');
+
+    /*
+    This function is called by the divx-plugin,
+    every second, when the movie is being played
+
+    @param current   is the position of the playback of movie in seconds
+    */
+    function myTimeCallback(current)
+    {
+    // Sends the current time in seconds of the video to the server
+    // There the event 'onUser' is raised in the controll-class
+    // of the window "winSegmentInformation"
+
+    zAu.send(new zk.Event(zk.Widget.$("divXplayer"), 'onUser', current));
+    }
+
+    /*
+    This function is called by the server to set the path of the video
+    to play. The path is set relativly to the location of the
+    segmentInformation.zul - file
+    */
+    function setDivxSource(filename)
+    {
+    // Open the seleted video file with the divx-plugin
+    plugin.Open(filename);
+    }
+
+    </script>
+         ]]>
+                                </html>
+                                <label id="blank_1"/>
+                            </row>
+                        </rows>
+                    </grid>
+                </row>
+                <row>
+                    <grid>
+                        <columns>
+                            <column label=""/>
+                            <column label="" align="center"/>
+                            <column label=""/>
+                        </columns>
+                        <rows>
+                            <row>
+                                <label id=""/>
+                                <label id="lbCurrentTime">
+                                        Time: 00:00:00
+                                </label>
+                            </row>
+                        </rows>
+                    </grid>
+                        
+                </row>
+                <row>
+                    <grid>
+                        <columns>
+                            <column label="Segment"/>
+                            <column label="Segmentinformation"/>
+                            <column label="" width="20%"/>
+                        </columns>
+                        <rows>
+                            <row valign="top">
+                                <listbox id="lbSegment" width="" height="175px"
+					onSelect="winSegmentInformation.selectSegmentItem()"
+                                        onDoubleClick="winSegmentInformation.onDoubleClickSegment()">
+                                    <custom-attributes segmentInformationTableResult=""/>
+                                    <listhead>
+                                        <listheader label="#" width="5%"/>
+                                        <listheader label="Segment ID"/>
+                                        <listheader label="Begin"/>
+                                        <listheader label="End"/>
+                                        <listheader label="Description"/>
+                                    </listhead>
+                                    <listitem>
+                                        <custom-attributes segmentDescriptionItem="" />
+                                    </listitem>
+                                </listbox>
+                                <listbox id="lbSegmentAdd" width="" height=""
+					onSelect="">                                    
+                                    <listhead>
+                                        <listheader label="Segment ID"/>
+                                        <listheader label="Begin"/>
+                                        <listheader label="End"/>
+                                        <listheader label="Description"/>
+
+                                    </listhead>
+                                    <listitem>
+                                        <custom-attributes segmentDescriptionItem=""/>
+                                        <listcell>
+                                            <textbox id="tbSegmentId" value="" width="98%"/>
+                                        </listcell>
+                                        <listcell>
+                                            <textbox id="tbBeginTime" value="" width="98%"/>
+                                        </listcell>
+                                        <listcell>
+                                            <textbox id="tbEndTime" value="" width="98%"/>
+                                        </listcell>
+                                        <listcell>
+                                            <vbox width="100%" align="center">
+                                                <checkbox id="cbxSegmentDescriptionItem" label="" onCheck="" disabled="true"/>
+                                            </vbox>
+                                        </listcell>
+                                    </listitem>
+                                    <listitem>
+                                        <listcell></listcell>
+                                        <listcell>
+                                            <button label="Set Begin Time" onClick="winSegmentInformation.setBeginTime()"/>
+                                        </listcell>
+                                        <listcell>
+                                            <button label="Set End Time" onClick="winSegmentInformation.setEndTime()"/>
+                                        </listcell>
+                                        <listcell>
+                                            <button label="Add Description">
+                                                <attribute name="onClick">{
+                                                    final Window win = (Window) Executions.createComponents("newSegmentDescription.zul", null, null);
+                                                    win.setMaximizable(false);
+                                                    win.doModal();	}
+                                                </attribute>
+                                            </button>
+                                            <button label="Del Description" onClick="winSegmentInformation.delDescription()"/>
+                                        </listcell>
+                                    </listitem>
+                                </listbox>
+                                <vbox>
+                                    <button label="Add Segment" onClick="winSegmentInformation.addSegment()"/>
+                                    <button id="btDelSegment" label="Del Segment" onClick="winSegmentInformation.delSegment()" disabled="true"/>
+                                </vbox>
+                            </row>
+                            <row>
+                                <label id="blank"/>
+                                <button id="btSave" label="Save Segment Table" onClick="winSegmentInformation.saveSegmentTable()"/>
+                                <toolbarbutton label="Return to Mainpage" href="segmentInformationMain.zul" style="color: blue;"/>
+                            </row>
+                        </rows>
+                    </grid>
+                </row>
+            </rows>
+        </grid>
+    </window>
+</zk>

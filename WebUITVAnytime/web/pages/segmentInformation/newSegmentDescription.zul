@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?page id="NewSegmentDescription"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul">
+    <window id="winNewSegmentDescription" title="Set Segment Description" width="650px"  height="680px" use="br.ufscar.dc.lince.webuitvanytime.controller.segmentInformation.NewSegmentDescriptionController" position="center,top">
+
+        <tabbox id="tabbox" width="100%">
+            <tabs>
+                <tab label="Title" />
+                <tab label="Synopsis" />
+                <tab label="Related Material" />
+            </tabs>
+            <tabpanels>
+                <tabpanel>
+                    <groupbox id="gbTitleAdd" mold="3d" width="100%" closable="false">
+                        <caption image="" label="New Title"/>
+                        <listbox id="lbTitleAdd" width="100%" height=""
+					onSelect="" fixedLayout = "false">
+                            <listhead>
+                                <listheader label="Title" width="10%"/>
+                                <listheader label="Language"/>
+                                <listheader label="Typ"/>
+                                <listheader label=""/>
+                            </listhead>
+                            <listitem>
+                                <listcell>
+                                    <textbox id="tbNewTitle" value="" cols="35"/>
+                                </listcell>
+                                <listcell>
+                                    <include src="../core/cbLanguage.zul" id="cbTitleLanguage"/>
+                                </listcell>
+                                <listcell>
+                                    <combobox id="cbTitleTyp" cols="15" readonly="true">
+                                        <comboitem label="Main"/>
+                                        <comboitem label="Secondary"/>
+                                        <comboitem label="Alternative"/>
+                                        <comboitem label="Original"/>
+                                        <comboitem label="Popular"/>
+                                        <comboitem label="Opusnumber"/>
+                                        <comboitem label="Songtitle"/>
+                                        <comboitem label="Albumtitle"/>
+                                        <comboitem label="Seriestitle"/>
+                                        <comboitem label="Episodetitle"/>
+                                    </combobox>
+                                </listcell>
+                                <listcell>
+                                    <button label="Add Title" onClick="winNewSegmentDescription.addTitle()"/>
+                                    <button label="Del Title" onClick="winNewSegmentDescription.delTitle()"/>
+                                </listcell>
+                            </listitem>
+                        </listbox>
+                    </groupbox>
+
+                    <label value="Title:"/>
+                    <listbox id="lbTitle" width="" height="440px"
+					onSelect="" fixedLayout = "false">
+                        <listhead>
+                            <listheader label="#" width="5%"/>
+                            <listheader label="Title"/>
+                            <listheader label="Language"/>
+                            <listheader label="Typ"/>
+                        </listhead>
+                        <listitem>
+
+                        </listitem>
+
+                    </listbox>
+                    
+                </tabpanel>
+                <tabpanel>
+                    
+                    <groupbox id="gbSynopsis" mold="3d" width="100%" open="true" closable="false">
+                        <caption image="" label="New Synopsis"/>
+                        <listbox id="lbSynopsisAdd"
+					onSelect="" width="100%" fixedLayout = "false">
+                            <listhead>
+                                <listheader label="Synopsis" width="10%"/>
+                                <listheader label="Language"/>
+                                <listheader label="Length" width="auto"/>
+                                <listheader label="" width="auto"/>
+                            </listhead>
+                            <listitem>
+                                <listcell>
+                                    <textbox id="tbNewSynopsis" value="" cols="35"/>
+                                </listcell>
+                                <listcell>
+                                    <include src="../core/cbLanguage.zul" id="cbSynopsisLanguage"/>
+                                </listcell>
+                                <listcell>
+                                    <combobox id="cbSynopsisLength" readonly="true" cols="13">
+                                        <comboitem label="Undefined"/>
+                                        <comboitem label="Short"/>
+                                        <comboitem label="Medium"/>
+                                        <comboitem label="Long"/>
+                                    </combobox>
+                                </listcell>
+                                <listcell>
+                                    <button label="Add Synopsis" onClick="winNewSegmentDescription.addSynopsis()"/>
+                                    <button label="Del Synopsis" onClick="winNewSegmentDescription.delSynopsis()"/>
+                                </listcell>
+                            </listitem>
+                        </listbox>
+                        
+                    </groupbox>
+
+                    <label value="Synopsis:"/>
+                    <listbox id="lbSynopsis" width="" height="440px"
+					onSelect="" fixedLayout = "false">
+                        <listhead>
+                            <listheader label="#" width="5%"/>
+                            <listheader label="Synopsis"/>
+                            <listheader label="Language"/>
+                            <listheader label="Length"/>
+                        </listhead>
+                        <listitem>
+                        </listitem>
+                    </listbox>
+                </tabpanel>
+                <tabpanel>
+
+                    <groupbox id="gbRelatedMaterial" mold="3d" width="100%" open="true" closable="false">
+                        <caption image="" label="New Related Material"/>
+                        <listbox id="lbRelatedMaterialAdd" width="100%"
+					onSelect="" fixedLayout = "false">
+                            <listhead>
+                                <listheader label="How related" width="10%"/>
+                                <listheader label="Relationname" />                                
+                                <listheader label="Sourcelocator"/>
+                                <listheader label=""/>
+                            </listhead>
+                            <listitem>
+                                <listcell>
+                                    <combobox id="cbHowRelated" readonly="true" cols="25">
+                                    </combobox>
+                                </listcell>
+                                <listcell>
+                                    <textbox id="tbRelationName" value=""/>
+                                </listcell>
+                                <listcell>
+                                    <textbox id="tbSourcelocator" value=""/>
+                                </listcell>
+                                <listcell style="padding: 0px 0px 0px 0px">
+                                    <vbox style="padding: 0px 0px 0px 0px">
+                                    <button label="Add Material" onClick="winNewSegmentDescription.addRelatedMaterial()"/>
+                                    <button label="Del Material" onClick="winNewSegmentDescription.delRelatedMaterial()"/>
+                                    </vbox>
+                                </listcell>
+                            </listitem>
+                        </listbox>
+
+                        <listbox id="lbRelatedMaterialAdd2s" width="100%"
+					onSelect="" fixedLayout = "false">
+                            <listhead>
+                                <listheader label="Locatortype"/>
+                                <listheader label="Segmenttype"/>
+                                <listheader label="Locator"/>
+                                <listheader label="Promotional Text" width="10%"/>                                
+                            </listhead>
+                            <listitem>
+                                <listcell>
+                                    <radiogroup Id="rbLocatorType" onCheck="" orient="vertical">
+                                        <vbox>
+                                            <radio label="Medialocator" checked="true"/>
+                                            <radio label="Segment Reference"/>
+                                        </vbox>
+                                    </radiogroup>
+                                </listcell>
+                                <listcell>
+                                    <combobox id="cbSegmentType" readonly="true" cols="15" onCreate="self.selectedIndex = 0">
+                                        <comboitem label="Segment"/>
+                                        <comboitem label="Segmentgroup"/>
+                                    </combobox>
+                                </listcell>
+                                <listcell>
+                                    <textbox id="tbLocator" value=""/>
+                                </listcell>
+                                <listcell>
+                                    <textbox id="tbPromotionalText" value=""/>
+                                </listcell>                                
+                            </listitem>
+                        </listbox>
+                    </groupbox>
+
+                    <label value="Related Material:"/>
+                    <listbox id="lbRelatedMaterial" width="" height="395px"
+					onSelect="" fixedLayout = "false">
+                        <listhead>
+                            <listheader label="#" width="5%"/>
+                            <listheader label="How related"/>
+                            <listheader label="Relationname"/>
+                            <listheader label="Sourcelocator"/>
+                            <listheader label="Locatortyp"/>
+                            <listheader label="Segment Type"/>                            
+                            <listheader label="Locator"/>
+                            <listheader label="Promotional Text"/>
+                        </listhead>
+                        <listitem>
+
+                        </listitem>
+
+                    </listbox>
+
+                </tabpanel>
+
+            </tabpanels>
+        </tabbox>
+
+        <vbox width="100%" align="right" style="padding: 10px 10px 10px 10px">
+            <hbox width="100%">
+                <button label="Save" onClick="winNewSegmentDescription.save()"/>
+                <button label="Cancel" onClick="winNewSegmentDescription.cancel()"/>
+            </hbox>
+        </vbox>
+        
+    </window>
+</zk>

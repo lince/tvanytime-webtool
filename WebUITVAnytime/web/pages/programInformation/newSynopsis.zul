@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul">
+
+    <window id="winNewSynopsis" title="New Synopsis" width="250px"  height="165px" use="br.ufscar.dc.lince.webuitvanytime.controller.programInformation.NewSynopsisController" position="center,center">
+
+             <!--
+        <listbox id="lbSynopsisAdd"
+					onSelect="" width="490px" fixedLayout = "false">
+
+            <listhead>
+                <listheader label="Synopsis" width="10%"/>
+                <listheader label="Language"/>
+                <listheader label="Length" width="auto"/>
+            </listhead>
+            <listitem>
+                <listcell>
+                    <textbox id="tbNewSynopsis" value="" cols="35"/>
+                </listcell>
+                <listcell>
+                    <include src="../core/cbLanguage.zul" id="cbSynopsisLanguage"/>
+                </listcell>
+                <listcell>
+                    <combobox id="cbSynopsisLength" readonly="true" cols="13">
+                        <comboitem label="Undefined"/>
+                        <comboitem label="Short"/>
+                        <comboitem label="Medium"/>
+                        <comboitem label="Long"/>
+                    </combobox>
+                </listcell>
+            </listitem>
+        </listbox>
+        <vbox width="100%" align="right">
+            <button label="Save Synopsis" onClick="winProgramInformation.saveSynopsis()"/>
+            <button label="Cancel" onClick="winProgramInformation.cancel()"/>
+        </vbox>
+        -->
+        
+        <grid>
+            <columns>
+                <column label="" width="80px"/>
+                <column label="" width="auto"/>
+            </columns>
+            <rows>
+                <row>	
+                    <label value="Synopsis: "/>
+                    <textbox id="tbSynopsis"/>
+                </row>
+                        
+                <row>
+                    <label value="Language: "/>
+                    <include src="../core/cbLanguage.zul" id="cbSynopsisLanguage"/>
+                </row>
+                <row>
+                    <label value="Lenght: "/>
+                    <combobox id="cbSynopsisLength" readonly="true" cols="13">
+                        <comboitem label="Undefined"/>
+                        <comboitem label="Short"/>
+                        <comboitem label="Medium"/>
+                        <comboitem label="Long"/>
+                    </combobox>
+                </row>
+                <row>	
+                </row>
+            </rows>
+        </grid>
+        <vbox width="100%" align="right">
+            <button label="Save Synopsis" onClick="winProgramInformation.saveSynopsis()"/>
+            <button label="Cancel" onClick="winProgramInformation.cancel()"/>
+        </vbox>
+    </window>
+
+</zk>

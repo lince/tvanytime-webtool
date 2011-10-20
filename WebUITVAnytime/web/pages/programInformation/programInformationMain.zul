@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?page id="ProgramInformationMain"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit"?>
+<zk xmlns="http://www.zkoss.org/2005/zul">
+
+    <window id="winProgramInformationMain" title="Program Information Main Window" width="100%"  height="100%" use="br.ufscar.dc.lince.webuitvanytime.controller.programInformation.ProgramInformationMainController">
+        <zscript>
+        import tvanytime.persistence.ws.ProgramInformationTableResult;
+        import tvanytime.persistence.ws.TVAnytimePersistence;
+        import tvanytime.persistence.ws.TVAnytimePersistenceService;
+
+        TVAnytimePersistence port = new TVAnytimePersistenceService().getTVAnytimePersistencePort();
+        Collection programInformationTableResultCollection = port.getAllProgramInformationTable();
+        </zscript>
+
+        <hbox>
+            <vbox>
+                <listbox id="lbProgramInformationTable" width="1000px" height="800px"
+					onSelect="winProgramInformationMain.selectCrid()" 
+                                        model="@{programInformationTableResultCollection}">
+                    <listhead>
+                        <listheader label="#" width="30px"/>
+                        <listheader label="Timestamp" width="auto"/>
+                        <listheader label="Name" width="auto"/>
+                    </listhead>
+                    <listitem self="@{each='programInformationTableResult'}">
+                        <custom-attributes programItem="@{programInformationTableResult}"/>
+                        <listcell>
+                            <label value="@{programInformationTableResult.id}" />            
+                        </listcell>
+                        <listcell>
+                            <label value="@{programInformationTableResult.time, converter='br.ufscar.dc.lince.tvanytime.core.converter.TimeConverter'}" />            
+                        </listcell>
+                        <listcell>
+                            <label value="@{programInformationTableResult.tableName}" />            
+                        </listcell>
+                    </listitem>
+                </listbox>
+                <toolbarbutton label="Return to Mainpage" href="/index.html" style="color: blue;"/>
+            </vbox>
+            <vbox>
+                <button id="addProgram" label="Add Program Information Table" onClick="winProgramInformationMain.add()"/>
+                <button id="editProgram" label="Edit Program Information Table" onClick="winProgramInformationMain.edit()" disabled="true"/>
+                <button id="deleteProgram" label="Delete Program Information Table" onClick="winProgramInformationMain.delete()" disabled="true"/>
+            </vbox>
+        </hbox>
+    </window>
+
+</zk>

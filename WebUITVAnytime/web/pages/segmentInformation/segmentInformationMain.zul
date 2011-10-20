@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?page id="segmentInformationMain"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul">
+    <window id="winSegmentInformationMain" title="Segment Information Main Window" width="100%"  height="100%" use="br.ufscar.dc.lince.webuitvanytime.controller.segmentInformation.SegmentInformationMainController">
+
+        <hbox>
+            <vbox>
+                <listbox id="lbSegmentInformationTable" width="1000px" height="800px"
+					onSelect="winSegmentInformationMain.selectCrid()">
+                    <listhead>
+                        <listheader label="#" width="30px"/>
+                        <listheader label="Timestamp" width="auto"/>
+                        <listheader label="Content-Filename" width="auto"/>
+                        <listheader label="Name" width="auto"/>
+                    </listhead>
+                    <listitem>
+                        <custom-attributes cridItem=""/>
+                    </listitem>
+                </listbox>
+                <toolbarbutton label="Return to Mainpage" href="/index.html" style="color: blue;"/>
+            </vbox>
+            <vbox>
+                <button id="addSegment" label="Add Segment Information Table" onClick="winSegmentInformationMain.add()"/>
+                <button id="editSegment" label="Edit Segment Information Table" onClick="winSegmentInformationMain.edit()" disabled="true"/>
+                <button id="deleteSegment" label="Delete Segment Information Table" onClick="winSegmentInformationMain.delete()" disabled="true"/>
+            </vbox>
+        </hbox>
+    </window>
+</zk>

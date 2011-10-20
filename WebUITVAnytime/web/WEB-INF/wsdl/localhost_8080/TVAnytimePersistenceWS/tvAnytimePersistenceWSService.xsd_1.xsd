@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.2.1-hudson-28-. --><xs:schema xmlns:tns="http://ws.persistence.tvanytime/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://ws.persistence.tvanytime/">
+
+<xs:element name="getAllContentReferencingTable" type="tns:getAllContentReferencingTable" />
+
+<xs:element name="getAllContentReferencingTableResponse" type="tns:getAllContentReferencingTableResponse" />
+
+<xs:element name="getContentReferencingTable" type="tns:getContentReferencingTable" />
+
+<xs:element name="getContentReferencingTableResponse" type="tns:getContentReferencingTableResponse" />
+
+<xs:element name="persistContentReferencingTable" type="tns:persistContentReferencingTable" />
+
+<xs:element name="persistContentReferencingTableResponse" type="tns:persistContentReferencingTableResponse" />
+
+<xs:element name="persistSegmentInformationTable" type="tns:persistSegmentInformationTable" />
+
+<xs:element name="persistSegmentInformationTableResponse" type="tns:persistSegmentInformationTableResponse" />
+
+<xs:element name="persistTvAnytimeMetaData" type="tns:persistTvAnytimeMetaData" />
+
+<xs:element name="persistTvAnytimeMetaDataResponse" type="tns:persistTvAnytimeMetaDataResponse" />
+
+<xs:complexType name="persistContentReferencingTable">
+<xs:sequence>
+<xs:element name="name" type="xs:string" minOccurs="0" />
+<xs:element name="contentReferencingTableXML" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="persistContentReferencingTableResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getAllContentReferencingTable">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="getAllContentReferencingTableResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:contentReferencingTableResult" minOccurs="0" maxOccurs="unbounded" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="contentReferencingTableResult">
+<xs:sequence>
+<xs:element name="id" type="xs:int" />
+<xs:element name="name" type="xs:string" minOccurs="0" />
+<xs:element name="time" type="xs:long" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="persistSegmentInformationTable">
+<xs:sequence>
+<xs:element name="segmentInformationTableXML" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="persistSegmentInformationTableResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getContentReferencingTable">
+<xs:sequence>
+<xs:element name="id" type="xs:int" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getContentReferencingTableResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="persistTvAnytimeMetaData">
+<xs:sequence>
+<xs:element name="contentRef" type="xs:string" minOccurs="0" />
+<xs:element name="programInf" type="xs:string" minOccurs="0" />
+<xs:element name="programLoc" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="persistTvAnytimeMetaDataResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
